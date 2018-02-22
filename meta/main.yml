@@ -1,0 +1,18 @@
+---
+
+dependencies:
+  - { role: mesos }
+
+galaxy_info:
+  author: Hylke Stapersma
+  description: Mesos on AWS
+  company: "Midwestern Mac, LLC"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2
+  platforms:
+    - name: Ubuntu
+      versions:
+      - all
+    - name: Debian
+      versions:
+      - all

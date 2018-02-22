@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Get ZK url and write it to
+echo "Zookeeper URL: $1"
+
+if [ -n $1 ]; then
+
+    # Get ZK url and write it to
+
+    echo "Writing zookeeper property"
+    echo $ZK | tee /etc/mesos/zk
+
+    echo "Setting Advertised IP for mesos"
+    LOCAL_IP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
+    echo "IP=$LOCAL_IP" | tee -a /etc/default/mesos-slave
+
+    echo "Starting mesos slave"
+    systemctl enable mesos-slave
+
+else
+    echo "Zookeeper variable not set"
+fi

@@ -1,0 +1,17 @@
+- name: "Install Curl"
+  package:
+    name: "curl"
+    state: "latest"
+  become: true
+
+- name: "Copy AWS Mesos scripts"
+  template:
+    src: "{{item}}.j2"
+    dest: "{{mesos_home}}/{{item}}"
+    owner: "{{mesos_user}}"
+    group: "{{mesos_group}}"
+    mode: 0755
+  with_items:
+    - make-mesos-master-on-aws
+    - make-slave-master-on-aws
+  become: true
