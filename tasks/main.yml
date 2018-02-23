@@ -6,12 +6,12 @@
 
 - name: "Copy AWS Mesos scripts"
   template:
-    src: "{{item}}.j2"
+    src: "{{item}}"
     dest: "{{mesos_home}}/{{item}}"
     owner: "{{mesos_user}}"
     group: "{{mesos_group}}"
     mode: 0755
   with_items:
-    - make-mesos-master-on-aws.sh
-    - make-slave-master-on-aws.sh
+    - make-mesos-master-on-aws.sh.j2
+    - make-slave-master-on-aws.sh.j2
   become: true
