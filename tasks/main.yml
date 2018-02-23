@@ -13,5 +13,5 @@
     mode: 0755
   with_items:
     - make-mesos-master-on-aws.sh.j2
-    - make-slave-master-on-aws.sh.j2
+    - make-mesos-skave-on-aws.sh.j2
   become: true
