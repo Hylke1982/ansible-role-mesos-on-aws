@@ -16,6 +16,7 @@ if [ -n $1 ]; then
 
     echo "Starting mesos slave"
     systemctl enable mesos-slave
+    systemctl start mesos-slave
 
 else
     echo "Zookeeper variable not set"
